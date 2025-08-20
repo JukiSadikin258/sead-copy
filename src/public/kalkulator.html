@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Jejak Air Makanan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-br from-blue-100 to-green-100 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <div class="max-w-3xl mx-auto">
+            <!-- Header -->
+            <div class="text-center mb-8">
+                <h1 class="text-3xl font-bold text-blue-600 mb-2">Kalkulator Jejak Air Makanan</h1>
+                <p class="text-gray-600">Hitung dampak konsumsi makanan Anda terhadap penggunaan air</p>
+            </div>
+
+            <!-- Calculator Card -->
+            <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+                <!-- Food Selection Grid -->
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-4">Pilih Jenis Makanan (Bisa Pilih Lebih Dari Satu)</label>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+                        <div class="food-item cursor-pointer transform transition-transform hover:scale-105" data-value="beefMeat">
+                            <div class="bg-white rounded-lg p-4 text-center border-2 border-transparent hover:border-blue-500">
+                                <img src="assets/beef.png" alt="Daging Sapi" class="w-16 h-16 mx-auto mb-2">
+                                <p class="text-sm font-medium">Daging Sapi</p>
+                            </div>
+                        </div>
+                        <div class="food-item cursor-pointer transform transition-transform hover:scale-105" data-value="lambMeat">
+                            <div class="bg-white rounded-lg p-4 text-center border-2 border-transparent hover:border-blue-500">
+                                <img src="assets/lamb.png" alt="Daging Domba" class="w-16 h-16 mx-auto mb-2">
+                                <p class="text-sm font-medium">Daging Domba</p>
+                            </div>
+                        </div>
+                        <div class="food-item cursor-pointer transform transition-transform hover:scale-105" data-value="chickenMeat">
+                            <div class="bg-white rounded-lg p-4 text-center border-2 border-transparent hover:border-blue-500">
+                                <img src="assets/chicken.png" alt="Daging Ayam" class="w-16 h-16 mx-auto mb-2">
+                                <p class="text-sm font-medium">Daging Ayam</p>
+                            </div>
+                        </div>
+                        <div class="food-item cursor-pointer transform transition-transform hover:scale-105" data-value="rice">
+                            <div class="bg-white rounded-lg p-4 text-center border-2 border-transparent hover:border-blue-500">
+                                <img src="assets/rice.png" alt="Nasi" class="w-16 h-16 mx-auto mb-2">
+                                <p class="text-sm font-medium">Nasi</p>
+                            </div>
+                        </div>
+                        <div class="food-item cursor-pointer transform transition-transform hover:scale-105" data-value="vegetables">
+                            <div class="bg-white rounded-lg p-4 text-center border-2 border-transparent hover:border-blue-500">
+                                <img src="assets/vegetables.png" alt="Sayuran" class="w-16 h-16 mx-auto mb-2">
+                                <p class="text-sm font-medium">Sayuran</p>
+                            </div>
+                        </div>
+                        <div class="food-item cursor-pointer transform transition-transform hover:scale-105" data-value="fruits">
+                            <div class="bg-white rounded-lg p-4 text-center border-2 border-transparent hover:border-blue-500">
+                                <img src="assets/fruits.png" alt="Buah-buahan" class="w-16 h-16 mx-auto mb-2">
+                                <p class="text-sm font-medium">Buah-buahan</p>
+                            </div>
+                        </div>
+                        <div class="food-item cursor-pointer transform transition-transform hover:scale-105" data-value="tempeh">
+                            <div class="bg-white rounded-lg p-4 text-center border-2 border-transparent hover:border-blue-500">
+                                <img src="assets/tempeh.png" alt="Tempe" class="w-16 h-16 mx-auto mb-2">
+                                <p class="text-sm font-medium">Tempe</p>
+                            </div>
+                        </div>
+                        <div class="food-item cursor-pointer transform transition-transform hover:scale-105" data-value="tofu">
+                            <div class="bg-white rounded-lg p-4 text-center border-2 border-transparent hover:border-blue-500">
+                                <img src="assets/tofu.png" alt="Tahu" class="w-16 h-16 mx-auto mb-2">
+                                <p class="text-sm font-medium">Tahu</p>
+                            </div>
+                        </div>
+                        <div class="food-item cursor-pointer transform transition-transform hover:scale-105" data-value="cassava">
+                                                                   <div class="bg-white rounded-lg p-4 text-center border-2 border-transparent hover:border-blue-500">
+                                <img src="assets/cassava.png" alt="Singkong" class="w-16 h-16 mx-auto mb-2">
+                                <p class="text-sm font-medium">Singkong</p>
+                            </div>
+                        </div>
+                        <div class="food-item cursor-pointer transform transition-transform hover:scale-105" data-value="sweetPotato">
+                            <div class="bg-white rounded-lg p-4 text-center border-2 border-transparent hover:border-blue-500">
+                                <img src="assets/sweet-potato.png" alt="Ubi" class="w-16 h-16 mx-auto mb-2">
+                                <p class="text-sm font-medium">Ubi</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="selectedFoods" class="mt-4 flex flex-wrap gap-2"></div>
+                </div>
+
+                <!-- Calculate Button -->
+                <button onclick="calculateWaterFootprint()" class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition duration-300 mb-6">
+                    Hitung Jejak Air
+                </button>
+
+                <!-- Result Section -->
+                <div id="result" class="hidden">
+                    <div class="border-t pt-6">
+                        <div class="bg-blue-50 rounded-lg p-4 mb-4">
+                            <h3 class="text-lg font-semibold text-blue-800 mb-2">Hasil Perhitungan</h3>
+                            <div id="waterUsage" class="text-gray-700"></div>
+                        </div>
+
+                        <!-- Water Saving Tips -->
+                        <div class="bg-green-50 rounded-lg p-4">
+                            <h3 class="text-lg font-semibold text-green-800 mb-2">Tips Hemat Air</h3>
+                            <ul id="tips" class="list-disc list-inside text-gray-700 space-y-2">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Water Facts -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-tint text-blue-500 text-2xl mr-3"></i>
+                        <h3 class="text-lg font-semibold">Tahukah Anda?</h3>
+                    </div>
+                    <p class="text-gray-600">Produksi 1 kg daging sapi membutuhkan sekitar 15.000 liter air, setara dengan mengisi 100 bak mandi!</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-leaf text-green-500 text-2xl mr-3"></i>
+                        <h3 class="text-lg font-semibold">Dampak Lingkungan</h3>
+                    </div>
+                    <p class="text-gray-600">Memilih makanan dengan jejak air yang lebih rendah dapat membantu melestarikan sumber daya air untuk generasi mendatang.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const foodItems = document.querySelectorAll('.food-item');
+            const selectedFoodsContainer = document.getElementById('selectedFoods');
+            let selectedFoods = new Set();
+
+            // Add click handlers to food items
+            foodItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const value = this.dataset.value;
+                    const foodDiv = this.querySelector('div');
+
+                    if (selectedFoods.has(value)) {
+                        selectedFoods.delete(value);
+                        foodDiv.classList.remove('border-blue-500');
+                        foodDiv.classList.add('border-transparent');
+                    } else {
+                        selectedFoods.add(value);
+                        foodDiv.classList.remove('border-transparent');
+                        foodDiv.classList.add('border-blue-500');
+                    }
+                    updateSelectedFoodsDisplay();
+                });
+            });
+
+            function updateSelectedFoodsDisplay() {
+                selectedFoodsContainer.innerHTML = '';
+                selectedFoods.forEach(food => {
+                    const chip = document.createElement('div');
+                    chip.className = 'bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm flex items-center';
+                    chip.innerHTML = `
+                        ${foodNames[food]}
+                        <button class="ml-2 text-blue-600 hover:text-blue-800" onclick="removeFood('${food}')">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    `;
+                    selectedFoodsContainer.appendChild(chip);
+                });
+            }
+
+            window.removeFood = function(food) {
+                selectedFoods.delete(food);
+                const foodItem = document.querySelector(`[data-value="${food}"] div`);
+                foodItem.classList.remove('border-blue-500');
+                foodItem.classList.add('border-transparent');
+                updateSelectedFoodsDisplay();
+            }
+
+            window.calculateWaterFootprint = function() {
+                if (selectedFoods.size === 0) {
+                    alert('Mohon pilih setidaknya satu jenis makanan!');
+                    return;
+                }
+
+                const resultDiv = document.getElementById('result');
+                const waterUsageDiv = document.getElementById('waterUsage');
+                const tipsContainer = document.getElementById('tips');
+
+                // Show result
+                resultDiv.classList.remove('hidden');
+                waterUsageDiv.innerHTML = '';
+
+                let totalWaterUsage = 0;
+                let highestWaterFootprint = 0;
+
+                selectedFoods.forEach(food => {
+                    const waterUsage = waterFootprints[food];
+                    totalWaterUsage += waterUsage;
+                    highestWaterFootprint = Math.max(highestWaterFootprint, waterUsage);
+
+                    const foodResult = document.createElement('p');
+                    foodResult.className = 'mb-1';
+                    foodResult.innerHTML = `<span class="font-bold">${foodNames[food]}</span> membutuhkan sekitar <span class="font-bold text-blue-600">${waterUsage} Galon air</span> dalam proses produksinya.`;
+                    waterUsageDiv.appendChild(foodResult);
+                });
+
+                const totalResult = document.createElement('p');
+                totalResult.className = 'mt-5 font-bold text-lg';
+                totalResult.innerHTML = `Total penggunaan air: <span class="text-blue-600">${totalWaterUsage} Galon air</span>`;
+                waterUsageDiv.appendChild(totalResult);
+
+                // Clear previous tips
+                tipsContainer.innerHTML = '';
+
+                // Add relevant tips based on highest water footprint
+                let relevantTips;
+                if (highestWaterFootprint <= 50) {
+                    relevantTips = tips.low;
+                } else if (highestWaterFootprint < 75) {
+                    relevantTips = tips.medium;
+                } else if (highestWaterFootprint > 75) {
+                    relevantTips = tips.high;
+                }
+
+                relevantTips.forEach(tip => {
+                    const li = document.createElement('li');
+                    li.textContent = tip;
+                    tipsContainer.appendChild(li);
+                });
+            }
+        });
+
+        const waterFootprints = {
+            beefMeat: 81,
+            lambMeat: 46,
+            chickenMeat: 42,
+            rice: 12,
+            vegetables: 3,
+            fruits: 7,
+            tempeh: 21,
+            tofu: 21,
+            cassava: 4,
+            sweetPotato: 4
+        };
+
+        const foodNames = {
+            beefMeat: "Daging Sapi",
+            lambMeat: "Daging Domba",
+            chickenMeat: "Daging Ayam",
+            rice: "Nasi",
+            vegetables: "Sayuran",
+            fruits: "Buah-buahan",
+            tempeh: "Tempe",
+            tofu: "Tahu",
+            cassava: "Singkong",
+            sweetPotato: "Ubi"
+        };
+
+        const tips = {
+            high: [
+                "Berlebihan",
+                "Pertimbangkan untuk mengurangi konsumsi daging merah",
+                "Coba ganti dengan protein nabati seperti tempe atau tahu",
+                "Kombinasikan dengan sayuran untuk menu yang lebih ramah lingkungan"
+            ],
+            medium: [
+                "Cukup berlebihan",
+                "Pilih porsi yang sesuai dengan kebutuhan",
+                "Kombinasikan dengan makanan berjejak air rendah",
+                "Hindari membuang makanan untuk menghemat air"
+            ],
+            low: [
+                "Pas",
+                "Bagus! Pilihan makanan Anda ramah lingkungan",
+                "Teruskan pola makan yang berkelanjutan",
+                "Bagikan informasi ini kepada orang lain"
+            ]
+        };
+    </script>
+</body>
+</html>

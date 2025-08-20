@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@theme {
+    --color-primary-dark: #3E9F2B;
+    --color-primary-light: #C0EAB7;
+    --color-primary: #53DD37;
+    --color-background: #FFF6E3;
+    --color-softabu: #f4f4f6;
+    --color-putih: #f9f9f9;
+    --color-text: #010101;
+    --color-secondary: #FF6D00;
+    --color-secondary-light: #f8b600;
+
+    --font-poppins: Poppins, sans-serif;
+    --font-chewy: Chewy, cursive;
+} 
+
+.section-title {
+    @apply font-bold font-chewy text-center mb-8 text-shadow-lg text-shadow-primary text-[52px] lg:text-[72px] text-primary-dark;
+} 
+
+.section {
+    @apply w-full max-w-screen h-full px-6 sm:px-10 md:px-24;
+}
+
+.cta-button {
+    @apply px-7 py-2 font-medium text-white rounded-xl bg-linear-to-r from-secondary-light to-secondary hover:scale-105 cursor-pointer transition-all duration-300;
+}
