@@ -7,276 +7,436 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
-<body class="bg-gradient-to-br from-blue-100 to-green-100 min-h-screen">
-    <div class="container mx-auto px-4 py-8">
-        <div class="max-w-3xl mx-auto">
-            <!-- Header -->
-            <div class="text-center mb-8">
-                <h1 class="text-3xl font-bold text-blue-600 mb-2">Kalkulator Jejak Air Makanan</h1>
-                <p class="text-gray-600">Hitung dampak konsumsi makanan Anda terhadap penggunaan air</p>
-            </div>
+<body style="background-color: #FFF6E3">
+    <div class="relative w-full h-20 bg-cover bg-center flex items-center px-4" 
+     style="background-image: url(assets/navcalc.png); box-shadow: 0 8px 10px -2px rgba(0,0,0,0.25)">
+     
+    <img src="assets/penabgcalc.png" 
+       alt="pena" 
+       class="absolute inset-0 w-full h-full object-cover opacity-40" />
 
-            <!-- Calculator Card -->
-            <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
-                <!-- Food Selection Grid -->
-                <div class="mb-6">
-                    <label class="block text-sm font-medium text-gray-700 mb-4">Pilih Jenis Makanan (Bisa Pilih Lebih Dari Satu)</label>
-                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
-                        <div class="food-item cursor-pointer transform transition-transform hover:scale-105" data-value="beefMeat">
-                            <div class="bg-white rounded-lg p-4 text-center border-2 border-transparent hover:border-blue-500">
-                                <img src="assets/beef.png" alt="Daging Sapi" class="w-16 h-16 mx-auto mb-2">
-                                <p class="text-sm font-medium">Daging Sapi</p>
-                            </div>
-                        </div>
-                        <div class="food-item cursor-pointer transform transition-transform hover:scale-105" data-value="lambMeat">
-                            <div class="bg-white rounded-lg p-4 text-center border-2 border-transparent hover:border-blue-500">
-                                <img src="assets/lamb.png" alt="Daging Domba" class="w-16 h-16 mx-auto mb-2">
-                                <p class="text-sm font-medium">Daging Domba</p>
-                            </div>
-                        </div>
-                        <div class="food-item cursor-pointer transform transition-transform hover:scale-105" data-value="chickenMeat">
-                            <div class="bg-white rounded-lg p-4 text-center border-2 border-transparent hover:border-blue-500">
-                                <img src="assets/chicken.png" alt="Daging Ayam" class="w-16 h-16 mx-auto mb-2">
-                                <p class="text-sm font-medium">Daging Ayam</p>
-                            </div>
-                        </div>
-                        <div class="food-item cursor-pointer transform transition-transform hover:scale-105" data-value="rice">
-                            <div class="bg-white rounded-lg p-4 text-center border-2 border-transparent hover:border-blue-500">
-                                <img src="assets/rice.png" alt="Nasi" class="w-16 h-16 mx-auto mb-2">
-                                <p class="text-sm font-medium">Nasi</p>
-                            </div>
-                        </div>
-                        <div class="food-item cursor-pointer transform transition-transform hover:scale-105" data-value="vegetables">
-                            <div class="bg-white rounded-lg p-4 text-center border-2 border-transparent hover:border-blue-500">
-                                <img src="assets/vegetables.png" alt="Sayuran" class="w-16 h-16 mx-auto mb-2">
-                                <p class="text-sm font-medium">Sayuran</p>
-                            </div>
-                        </div>
-                        <div class="food-item cursor-pointer transform transition-transform hover:scale-105" data-value="fruits">
-                            <div class="bg-white rounded-lg p-4 text-center border-2 border-transparent hover:border-blue-500">
-                                <img src="assets/fruits.png" alt="Buah-buahan" class="w-16 h-16 mx-auto mb-2">
-                                <p class="text-sm font-medium">Buah-buahan</p>
-                            </div>
-                        </div>
-                        <div class="food-item cursor-pointer transform transition-transform hover:scale-105" data-value="tempeh">
-                            <div class="bg-white rounded-lg p-4 text-center border-2 border-transparent hover:border-blue-500">
-                                <img src="assets/tempeh.png" alt="Tempe" class="w-16 h-16 mx-auto mb-2">
-                                <p class="text-sm font-medium">Tempe</p>
-                            </div>
-                        </div>
-                        <div class="food-item cursor-pointer transform transition-transform hover:scale-105" data-value="tofu">
-                            <div class="bg-white rounded-lg p-4 text-center border-2 border-transparent hover:border-blue-500">
-                                <img src="assets/tofu.png" alt="Tahu" class="w-16 h-16 mx-auto mb-2">
-                                <p class="text-sm font-medium">Tahu</p>
-                            </div>
-                        </div>
-                        <div class="food-item cursor-pointer transform transition-transform hover:scale-105" data-value="cassava">
-                                                                   <div class="bg-white rounded-lg p-4 text-center border-2 border-transparent hover:border-blue-500">
-                                <img src="assets/cassava.png" alt="Singkong" class="w-16 h-16 mx-auto mb-2">
-                                <p class="text-sm font-medium">Singkong</p>
-                            </div>
-                        </div>
-                        <div class="food-item cursor-pointer transform transition-transform hover:scale-105" data-value="sweetPotato">
-                            <div class="bg-white rounded-lg p-4 text-center border-2 border-transparent hover:border-blue-500">
-                                <img src="assets/sweet-potato.png" alt="Ubi" class="w-16 h-16 mx-auto mb-2">
-                                <p class="text-sm font-medium">Ubi</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="selectedFoods" class="mt-4 flex flex-wrap gap-2"></div>
-                </div>
+    <img src="assets/Vectorcalc.png" 
+       alt="kertas putih" 
+       class="absolute left-1/2 -translate-x-1/2 h-12 object-contain z-10" />
 
-                <!-- Calculate Button -->
-                <button onclick="calculateWaterFootprint()" class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition duration-300 mb-6">
-                    Hitung Jejak Air
-                </button>
+    <h1 class="relative mx-auto text-xl font-bold text-black z-20">
+       Berita<span class="text-green-600">Se</span><span class="text-green-400">ad</span>
+    </h1>
+    </div>
 
-                <!-- Result Section -->
-                <div id="result" class="hidden">
-                    <div class="border-t pt-6">
-                        <div class="bg-blue-50 rounded-lg p-4 mb-4">
-                            <h3 class="text-lg font-semibold text-blue-800 mb-2">Hasil Perhitungan</h3>
-                            <div id="waterUsage" class="text-gray-700"></div>
-                        </div>
+    <div class="max-w-5xl mx-auto px-4 py-12 text-center">
 
-                        <!-- Water Saving Tips -->
-                        <div class="bg-green-50 rounded-lg p-4">
-                            <h3 class="text-lg font-semibold text-green-800 mb-2">Tips Hemat Air</h3>
-                            <ul id="tips" class="list-disc list-inside text-gray-700 space-y-2">
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- Judul -->
+    <div class="mb-4">
+      <h2 class="text-2xl md:text-3xl font-bold text-green-600">
+        Mengapa harus Se<span class="text-green-400">ad?</span>
+      </h2>
+    </div>
 
-            <!-- Water Facts -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="bg-white rounded-lg shadow-lg p-6">
-                    <div class="flex items-center mb-4">
-                        <i class="fas fa-tint text-blue-500 text-2xl mr-3"></i>
-                        <h3 class="text-lg font-semibold">Tahukah Anda?</h3>
-                    </div>
-                    <p class="text-gray-600">Produksi 1 kg daging sapi membutuhkan sekitar 15.000 liter air, setara dengan mengisi 100 bak mandi!</p>
-                </div>
-                <div class="bg-white rounded-lg shadow-lg p-6">
-                    <div class="flex items-center mb-4">
-                        <i class="fas fa-leaf text-green-500 text-2xl mr-3"></i>
-                        <h3 class="text-lg font-semibold">Dampak Lingkungan</h3>
-                    </div>
-                    <p class="text-gray-600">Memilih makanan dengan jejak air yang lebih rendah dapat membantu melestarikan sumber daya air untuk generasi mendatang.</p>
-                </div>
-            </div>
+    <!-- Paragraf pembuka -->
+    <div class="mb-10">
+      <p class="text-gray-700 leading-relaxed">
+        <span class="text-green-600 font-semibold">Se</span><span class="text-green-400">ad</span>, singkatan dari 
+        <span class="font-bold">Senin Absen Daging</span>, adalah langkah kecil dengan dampak besar.
+        Dengan tidak mengonsumsi daging satu hari dalam seminggu, kamu membantu
+        mengurangi jejak karbon, menghemat air bersih, dan menjaga kelestarian bumi.
+      </p>
+    </div>
+
+    <!-- kotak -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+
+      <!-- Kotak 1 -->
+      <div class="border border-green-400 rounded-xl p-6 text-center bg-white">
+        <div>
+          <img src="assets/bumicalc.png" alt="Emisi Gas Rumah Kaca" class="w-20 h-20 mx-auto mb-4 rounded-full object-cover">
+        </div>
+        <div>
+          <h3 class="font-bold text-green-600 mb-2">Emisi Gas Rumah Kaca</h3>
+          <p class="text-gray-600 text-sm">
+            Produksi daging menyumbang hingga <span class="font-bold">14,5%</span> emisi gas rumah kaca global. Satu porsi daging sapi =  <span class="font-bold">27 kg CO₂</span>
+            <span class="block"></span>
+            <span class="text-green-600 font-semibold">Se</span><span class="text-green-400">ad</span> bantu kurangi emisi!
+          </p>
+        </div>
+      </div>
+
+      <!-- Kotak 2 -->
+      <div class="border border-blue-400 rounded-xl p-6 text-center bg-white">
+        <div>
+          <img src="assets/konsumsiaircalc.png" alt="Konsumsi Air" class="w-20 h-20 mx-auto mb-4 rounded-full object-cover">
+        </div>
+        <div>
+          <h3 class="font-bold text-blue-600 mb-2">Konsumsi Air</h3>
+          <p class="text-gray-400 text-sm">
+            Satu burger daging sapi membutuhkan lebih dari <span class="font-bold">2.500 liter air</span>. Bayangkan jika kamu menghematnya hanya dengan absen daging setiap Senin.
+          </p>
+        </div>
+      </div>
+
+      <!-- Kotak 3 -->
+      <div class="border border-yellow-400 rounded-xl p-6 text-center bg-white">
+        <div>
+          <img src="assets/padicalc.png" alt="Emisi Gas Rumah Kaca" class="w-20 h-20 mx-auto mb-4 rounded-full object-cover">
+        </div>
+        <div>
+          <h3 class="font-bold text-yellow-600 mb-2">Emisi gas rumah kaca</h3>
+          <p class="text-gray-600 text-sm">
+            <span class="font-bold">77%</span> lahan pertanian digunakan untuk peternakan, padahal hasilnya hanya <span class="font-bold">18%</span> dari kalori global. <span class="text-green-600 font-semibold">Se</span><span class="text-green-400">ad</span> ikut selamatkan ruang hijau
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Paragraf penutup -->
+    <div>
+      <p class="text-gray-700 leading-relaxed">
+        Setiap piring tanpa daging adalah langkah kecil untuk perubahan besar.
+        Tahukah kamu bahwa dengan tidak makan daging satu hari saja, kamu bisa
+        menghemat <span class="font-bold">ratusan liter air</span> dan
+        <span class="font-bold">mengurangi emisi gas rumah kaca</span>
+        Lewat kalkulator ini, hitung sendiri seberapa besar kontribusimu untuk bumi
+        hanya dengan ikut gerakan <span class="text-green-600 font-semibold">Se</span><span class="text-green-400">ad</span>.
+      </p>
+    </div>
+    
+    <div class="flex justify-center items-center min-h-screen bg-[#FFF6E3]">
+        <div class="bg-green-100 border-2 border-green-600 rounded-2xl shadow-md p-8 w-[400px]">
+    <!-- Judul -->
+        <h2 class="text-center text-green-800 text-xl font-bold mb-6">
+        Hitung Jejak karbonmu
+        </h2>
+
+    <!-- Pertanyaan 1 -->
+        <label class="block text-gray-700 text-sm mb-2">
+        Berapa minggu kamu mengikuti 
+        <span class="text-green-600 font-semibold">Se</span><span class="text-green-400">ad?</span>
+        </label>
+        <input type="number" 
+        class="w-full mb-6 px-4 py-2 border border-green-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+        placeholder="Masukkan jumlah orang">
+
+    <!-- Pertanyaan 2 -->
+        <label class="block text-gray-700 text-sm mb-2">
+        Berapa orang dalam rumahmu yang mengikuti 
+        <span class="text-green-600 font-semibold">Se</span><span class="text-green-400">ad?</span>
+        </label>
+        <input type="number" 
+        class="w-full mb-6 px-4 py-2 border border-green-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+        placeholder="Masukkan jumlah orang">
+
+    <!-- Tombol -->
+        <div class="flex justify-center">
+        <button class="bg-green-200 border border-green-700 text-green-800 font-semibold px-6 py-2 rounded-full shadow hover:bg-green-300 transition">
+        Ayo Hitung!
+        </button>
+        </div>
         </div>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const foodItems = document.querySelectorAll('.food-item');
-            const selectedFoodsContainer = document.getElementById('selectedFoods');
-            let selectedFoods = new Set();
+<!-- Judul -->
+<h2 class="text-2xl font-bold text-green-700 mb-8 text-center">Tahukah Kamu?</h2>
 
-            // Add click handlers to food items
-            foodItems.forEach(item => {
-                item.addEventListener('click', function() {
-                    const value = this.dataset.value;
-                    const foodDiv = this.querySelector('div');
+<!-- Grid utama -->
+<div class="grid grid-cols-2 gap-6 w-full max-w-4xl mx-auto">
 
-                    if (selectedFoods.has(value)) {
-                        selectedFoods.delete(value);
-                        foodDiv.classList.remove('border-blue-500');
-                        foodDiv.classList.add('border-transparent');
-                    } else {
-                        selectedFoods.add(value);
-                        foodDiv.classList.remove('border-transparent');
-                        foodDiv.classList.add('border-blue-500');
-                    }
-                    updateSelectedFoodsDisplay();
-                });
-            });
+  <!-- CARD 1 -->
+  <div class="bg-green-200 rounded-xl shadow-md p-4 flex items-center justify-around">
+    <!-- Makanan -->
+    <div class="flex flex-col items-center">
+      <img src="assets/dagingsapi.png" alt="Daging Sapi" class="w-20 h-20 rounded-lg object-cover">
+      <p class="mt-2 text-sm font-semibold text-gray-700 text-center">160g<br>Daging Sapi</p>
+    </div>
 
-            function updateSelectedFoodsDisplay() {
-                selectedFoodsContainer.innerHTML = '';
-                selectedFoods.forEach(food => {
-                    const chip = document.createElement('div');
-                    chip.className = 'bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm flex items-center';
-                    chip.innerHTML = `
-                        ${foodNames[food]}
-                        <button class="ml-2 text-blue-600 hover:text-blue-800" onclick="removeFood('${food}')">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    `;
-                    selectedFoodsContainer.appendChild(chip);
-                });
-            }
+    <div class="text-2xl font-bold text-green-800">=</div>
 
-            window.removeFood = function(food) {
-                selectedFoods.delete(food);
-                const foodItem = document.querySelector(`[data-value="${food}"] div`);
-                foodItem.classList.remove('border-blue-500');
-                foodItem.classList.add('border-transparent');
-                updateSelectedFoodsDisplay();
-            }
+    <!-- Air -->
+    <div class="flex flex-col items-center">
+      <img src="assets/galonair.png" alt="Air Galon" class="w-20 h-20 rounded-lg object-cover">
+      <p class="mt-2 text-sm text-gray-700 text-center">81<br>Air Galon (19L)</p>
+    </div>
+  </div>
 
-            window.calculateWaterFootprint = function() {
-                if (selectedFoods.size === 0) {
-                    alert('Mohon pilih setidaknya satu jenis makanan!');
-                    return;
-                }
+  <!-- CARD 2 -->
+  <div class="bg-green-200 rounded-xl shadow-md p-4 flex items-center justify-around">
+    <!-- Makanan -->
+    <div class="flex flex-col items-center">
+      <img src="assets/ayamgoreng.png" alt="Daging Ayam" class="w-20 h-20 rounded-lg object-cover">
+      <p class="mt-2 text-sm font-semibold text-gray-700 text-center">160g<br>Daging Ayam</p>
+    </div>
 
-                const resultDiv = document.getElementById('result');
-                const waterUsageDiv = document.getElementById('waterUsage');
-                const tipsContainer = document.getElementById('tips');
+    <div class="text-2xl font-bold text-green-800">=</div>
 
-                // Show result
-                resultDiv.classList.remove('hidden');
-                waterUsageDiv.innerHTML = '';
+    <!-- Air -->
+    <div class="flex flex-col items-center">
+      <img src="assets/galonair.png" alt="Air Galon" class="w-20 h-20 rounded-lg object-cover">
+      <p class="mt-2 text-sm text-gray-700 text-center">22<br>Air Galon (19L)</p>
+    </div>
+  </div>
 
-                let totalWaterUsage = 0;
-                let highestWaterFootprint = 0;
+    <!-- CARD 3 -->
+  <div class="bg-green-200 rounded-xl shadow-md p-4 flex items-center justify-around">
+    <!-- Makanan -->
+    <div class="flex flex-col items-center">
+      <img src="assets/telur.png" alt="Telur" class="w-20 h-20 rounded-lg object-cover">
+      <p class="mt-2 text-sm font-semibold text-gray-700 text-center">50g<br>Telur</p>
+    </div>
 
-                selectedFoods.forEach(food => {
-                    const waterUsage = waterFootprints[food];
-                    totalWaterUsage += waterUsage;
-                    highestWaterFootprint = Math.max(highestWaterFootprint, waterUsage);
+    <div class="text-2xl font-bold text-green-800">=</div>
 
-                    const foodResult = document.createElement('p');
-                    foodResult.className = 'mb-1';
-                    foodResult.innerHTML = `<span class="font-bold">${foodNames[food]}</span> membutuhkan sekitar <span class="font-bold text-blue-600">${waterUsage} Galon air</span> dalam proses produksinya.`;
-                    waterUsageDiv.appendChild(foodResult);
-                });
+    <!-- Air -->
+    <div class="flex flex-col items-center">
+      <img src="assets/galonair.png" alt="Air Galon" class="w-20 h-20 rounded-lg object-cover">
+      <p class="mt-2 text-sm text-gray-700 text-center">8<br>Air Galon (19L)</p>
+    </div>
+  </div>
 
-                const totalResult = document.createElement('p');
-                totalResult.className = 'mt-5 font-bold text-lg';
-                totalResult.innerHTML = `Total penggunaan air: <span class="text-blue-600">${totalWaterUsage} Galon air</span>`;
-                waterUsageDiv.appendChild(totalResult);
+    <!-- CARD 4 -->
+  <div class="bg-green-200 rounded-xl shadow-md p-4 flex items-center justify-around">
+    <!-- Makanan -->
+    <div class="flex flex-col items-center">
+      <img src="assets/susu.png" alt="Susu" class="w-20 h-20 rounded-lg object-cover">
+      <p class="mt-2 text-sm font-semibold text-gray-700 text-center">250ml<br>Susu</p>
+    </div>
 
-                // Clear previous tips
-                tipsContainer.innerHTML = '';
+    <div class="text-2xl font-bold text-green-800">=</div>
 
-                // Add relevant tips based on highest water footprint
-                let relevantTips;
-                if (highestWaterFootprint <= 50) {
-                    relevantTips = tips.low;
-                } else if (highestWaterFootprint < 75) {
-                    relevantTips = tips.medium;
-                } else if (highestWaterFootprint > 75) {
-                    relevantTips = tips.high;
-                }
+    <!-- Air -->
+    <div class="flex flex-col items-center">
+      <img src="assets/galonair.png" alt="Air Galon" class="w-20 h-20 rounded-lg object-cover">
+      <p class="mt-2 text-sm text-gray-700 text-center">13<br>Air Galon (19L)</p>
+    </div>
+  </div>
 
-                relevantTips.forEach(tip => {
-                    const li = document.createElement('li');
-                    li.textContent = tip;
-                    tipsContainer.appendChild(li);
-                });
-            }
-        });
+    <!-- CARD 5 -->
+  <div class="bg-green-200 rounded-xl shadow-md p-4 flex items-center justify-around">
+    <!-- Makanan -->
+    <div class="flex flex-col items-center">
+      <img src="assets/sayuran.png" alt="Sayur-sayuran" class="w-20 h-20 rounded-lg object-cover">
+      <p class="mt-2 text-sm font-semibold text-gray-700 text-center">200g<br>Sayur-sayuran</p>
+    </div>
 
-        const waterFootprints = {
-            beefMeat: 81,
-            lambMeat: 46,
-            chickenMeat: 42,
-            rice: 12,
-            vegetables: 3,
-            fruits: 7,
-            tempeh: 21,
-            tofu: 21,
-            cassava: 4,
-            sweetPotato: 4
-        };
+    <div class="text-2xl font-bold text-green-800">=</div>
 
-        const foodNames = {
-            beefMeat: "Daging Sapi",
-            lambMeat: "Daging Domba",
-            chickenMeat: "Daging Ayam",
-            rice: "Nasi",
-            vegetables: "Sayuran",
-            fruits: "Buah-buahan",
-            tempeh: "Tempe",
-            tofu: "Tahu",
-            cassava: "Singkong",
-            sweetPotato: "Ubi"
-        };
+    <!-- Air -->
+    <div class="flex flex-col items-center">
+      <img src="assets/galonair.png" alt="Air Galon" class="w-20 h-20 rounded-lg object-cover">
+      <p class="mt-2 text-sm text-gray-700 text-center">3<br>Air Galon (19L)</p>
+    </div>
+  </div>
 
-        const tips = {
-            high: [
-                "Berlebihan",
-                "Pertimbangkan untuk mengurangi konsumsi daging merah",
-                "Coba ganti dengan protein nabati seperti tempe atau tahu",
-                "Kombinasikan dengan sayuran untuk menu yang lebih ramah lingkungan"
-            ],
-            medium: [
-                "Cukup berlebihan",
-                "Pilih porsi yang sesuai dengan kebutuhan",
-                "Kombinasikan dengan makanan berjejak air rendah",
-                "Hindari membuang makanan untuk menghemat air"
-            ],
-            low: [
-                "Pas",
-                "Bagus! Pilihan makanan Anda ramah lingkungan",
-                "Teruskan pola makan yang berkelanjutan",
-                "Bagikan informasi ini kepada orang lain"
-            ]
-        };
-    </script>
+    <!-- CARD 6 -->
+  <div class="bg-green-200 rounded-xl shadow-md p-4 flex items-center justify-around">
+    <!-- Makanan -->
+    <div class="flex flex-col items-center">
+      <img src="assets/singkong.png" alt="Singkong" class="w-20 h-20 rounded-lg object-cover">
+      <p class="mt-2 text-sm font-semibold text-gray-700 text-center">200g<br>Singkong</p>
+    </div>
+
+    <div class="text-2xl font-bold text-green-800">=</div>
+
+    <!-- Air -->
+    <div class="flex flex-col items-center">
+      <img src="assets/galonair.png" alt="Air Galon" class="w-20 h-20 rounded-lg object-cover">
+      <p class="mt-2 text-sm text-gray-700 text-center">4<br>Air Galon (19L)</p>
+    </div>
+  </div>
+
+    <!-- CARD 7 -->
+  <div class="bg-green-200 rounded-xl shadow-md p-4 flex items-center justify-around">
+    <!-- Makanan -->
+    <div class="flex flex-col items-center">
+      <img src="assets/nasi.png" alt="Nasi" class="w-20 h-20 rounded-lg object-cover">
+      <p class="mt-2 text-sm font-semibold text-gray-700 text-center">100g<br>Nasi</p>
+    </div>
+
+    <div class="text-2xl font-bold text-green-800">=</div>
+
+    <!-- Air -->
+    <div class="flex flex-col items-center">
+      <img src="assets/galonair.png" alt="Air Galon" class="w-20 h-20 rounded-lg object-cover">
+      <p class="mt-2 text-sm text-gray-700 text-center">12<br>Air Galon (19L)</p>
+    </div>
+  </div>
+
+    <!-- CARD 8 -->
+  <div class="bg-green-200 rounded-xl shadow-md p-4 flex items-center justify-around">
+    <!-- Makanan -->
+    <div class="flex flex-col items-center">
+      <img src="assets/ubi.png" alt="Ubi" class="w-20 h-20 rounded-lg object-cover">
+      <p class="mt-2 text-sm font-semibold text-gray-700 text-center">200g<br>Ubi</p>
+    </div>
+
+    <div class="text-2xl font-bold text-green-800">=</div>
+
+    <!-- Air -->
+    <div class="flex flex-col items-center">
+      <img src="assets/galonair.png" alt="Air Galon" class="w-20 h-20 rounded-lg object-cover">
+      <p class="mt-2 text-sm text-gray-700 text-center">4<br>Air Galon (19L)</p>
+    </div>
+  </div>
+
+    <!-- CARD 9 -->
+  <div class="bg-green-200 rounded-xl shadow-md p-4 flex items-center justify-around">
+    <!-- Makanan -->
+    <div class="flex flex-col items-center">
+      <img src="assets/tahutempe.png" alt="Tahu Tempe" class="w-20 h-20 rounded-lg object-cover">
+      <p class="mt-2 text-sm font-semibold text-gray-700 text-center">100<br>Tahu Tempe</p>
+    </div>
+
+    <div class="text-2xl font-bold text-green-800">=</div>
+
+    <!-- Air -->
+    <div class="flex flex-col items-center">
+      <img src="assets/galonair.png" alt="Air Galon" class="w-20 h-20 rounded-lg object-cover">
+      <p class="mt-2 text-sm text-gray-700 text-center">21<br>Air Galon (19L)</p>
+    </div>
+  </div>
+
+    <!-- CARD 10 -->
+  <div class="bg-green-200 rounded-xl shadow-md p-4 flex items-center justify-around">
+    <!-- Makanan -->
+    <div class="flex flex-col items-center">
+      <img src="assets/buahbuahan.png" alt="Buah-buahan" class="w-20 h-20 rounded-lg object-cover">
+      <p class="mt-2 text-sm font-semibold text-gray-700 text-center">150g<br>Buah-buahan</p>
+    </div>
+
+    <div class="text-2xl font-bold text-green-800">=</div>
+
+    <!-- Air -->
+    <div class="flex flex-col items-center">
+      <img src="assets/galonair.png" alt="Air Galon" class="w-20 h-20 rounded-lg object-cover">
+      <p class="mt-2 text-sm text-gray-700 text-center">7<br>Air Galon (19L)</p>
+    </div>
+  </div>
+
+  <!-- Judul atas -->
+<p class="text-center text-gray-700 max-w-2xl mx-auto mb-6">
+  Makan enak itu penting, tapi tahu jejak airnya juga nggak kalah penting! Yuk hitung berapa banyak air yang kamu ‘gunakan’ hari ini lewat makananmu.
+</p>
+
+<!-- Box Form -->
+<div class="bg-green-200 rounded-xl shadow-md p-6 border border-green-400 max-w-3xl mx-auto">
+
+  <!-- Judul Form -->
+  <h2 class="text-xl font-bold text-green-800 text-center mb-4">
+    Ayo Hitung Jejak Air Makananmu!
+  </h2>
+
+  <p class="text-gray-700 mb-4">Makanan yang kamu makan hari ini</p>
+
+  <!-- Form Grid -->
+  <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+
+    <!-- Daging Sapi -->
+    <div class="flex items-center justify-between border rounded-lg px-2 py-1 bg-white">
+      <label class="text-sm font-medium text-gray-700">Daging Sapi</label>
+      <select class="border-none bg-transparent text-sm focus:ring-0">
+        <option>100g</option>
+        <option>200g</option>
+        <option>300g</option>
+      </select>
+    </div>
+
+    <!-- Daging Ayam -->
+    <div class="flex items-center justify-between border rounded-lg px-2 py-1 bg-white">
+      <label class="text-sm font-medium text-gray-700">Daging Ayam</label>
+      <select class="border-none bg-transparent text-sm focus:ring-0">
+        <option>100g</option>
+        <option>200g</option>
+        <option>300g</option>
+      </select>
+    </div>
+
+    <!-- Telur -->
+    <div class="flex items-center justify-between border rounded-lg px-2 py-1 bg-white">
+      <label class="text-sm font-medium text-gray-700">Telur</label>
+      <select class="border-none bg-transparent text-sm focus:ring-0">
+        <option>1 butir</option>
+        <option>2 butir</option>
+        <option>3 butir</option>
+      </select>
+    </div>
+
+    <!-- Susu -->
+    <div class="flex items-center justify-between border rounded-lg px-2 py-1 bg-white">
+      <label class="text-sm font-medium text-gray-700">Susu</label>
+      <select class="border-none bg-transparent text-sm focus:ring-0">
+        <option>250ml</option>
+        <option>500ml</option>
+        <option>1L</option>
+      </select>
+    </div>
+
+    <!-- Sayur -->
+    <div class="flex items-center justify-between border rounded-lg px-2 py-1 bg-white">
+      <label class="text-sm font-medium text-gray-700">Sayur</label>
+      <select class="border-none bg-transparent text-sm focus:ring-0">
+        <option>100g</option>
+        <option>200g</option>
+        <option>300g</option>
+      </select>
+    </div>
+
+    <!-- Singkong -->
+    <div class="flex items-center justify-between border rounded-lg px-2 py-1 bg-white">
+      <label class="text-sm font-medium text-gray-700">Singkong</label>
+      <select class="border-none bg-transparent text-sm focus:ring-0">
+        <option>100g</option>
+        <option>200g</option>
+      </select>
+    </div>
+
+    <!-- Nasi -->
+    <div class="flex items-center justify-between border rounded-lg px-2 py-1 bg-white">
+      <label class="text-sm font-medium text-gray-700">Nasi</label>
+      <select class="border-none bg-transparent text-sm focus:ring-0">
+        <option>100g</option>
+        <option>200g</option>
+        <option>300g</option>
+      </select>
+    </div>
+
+    <!-- Ubi -->
+    <div class="flex items-center justify-between border rounded-lg px-2 py-1 bg-white">
+      <label class="text-sm font-medium text-gray-700">Ubi</label>
+      <select class="border-none bg-transparent text-sm focus:ring-0">
+        <option>100g</option>
+        <option>200g</option>
+      </select>
+    </div>
+
+    <!-- Tahu, Tempe -->
+    <div class="flex items-center justify-between border rounded-lg px-2 py-1 bg-white col-span-2 md:col-span-1">
+      <label class="text-sm font-medium text-gray-700">Tahu, tempe</label>
+      <select class="border-none bg-transparent text-sm focus:ring-0">
+        <option>100g</option>
+        <option>200g</option>
+      </select>
+    </div>
+
+    <!-- Buah -->
+    <div class="flex items-center justify-between border rounded-lg px-2 py-1 bg-white col-span-2 md:col-span-1">
+      <label class="text-sm font-medium text-gray-700">Buah</label>
+      <select class="border-none bg-transparent text-sm focus:ring-0">
+        <option>100g</option>
+        <option>200g</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Tombol -->
+  <div class="mt-6 text-center">
+    <button class="bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-2 rounded-full shadow">
+      Ayo Hitung!
+    </button>
+  </div>
+</div>
+
+
+
+
+</body>
 </body>
 </html>
